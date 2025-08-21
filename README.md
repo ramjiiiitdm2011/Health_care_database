@@ -3,8 +3,6 @@
 This project is a **PostgreSQL-based Healthcare Database System** designed to manage patients, doctors, insurance, and enrollments efficiently.  
 It demonstrates **database design, SQL queries, and data management skills** useful in real-world healthcare systems.  
 
----
-
 ## 📌 Features
 - Patient records management (Name, Age, Gender, Blood Type, Medical Conditions).  
 - Hospital admissions tracking (Doctor, Hospital, Room number, Billing).  
