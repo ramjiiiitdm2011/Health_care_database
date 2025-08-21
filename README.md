@@ -1,39 +1,42 @@
-Health Care Database
+# 🏥 Health Care Database  
 
-This project is a PostgreSQL-based healthcare database system designed to efficiently manage patient information, medical records, insurance plans, and hospital data. The database schema captures key aspects of healthcare operations, ensuring data consistency, scalability, and reliability for healthcare analytics and applications.
+This project is a **PostgreSQL-based Healthcare Database System** designed to manage patients, doctors, insurance, and enrollments efficiently.  
+It demonstrates **database design, SQL queries, and data management skills** useful in real-world healthcare systems.  
 
-📌 Features
+---
 
-Patient Information Management – Stores member details such as name, age, gender, and date of birth.
-Medical Records Tracking – Maintains health-related information including blood type, medical conditions, doctors, hospitals, and billing.
-Insurance & Plans – Manages insurance providers, plan details, coverage types, and premiums.
-Enrollments – Tracks member enrollments into specific healthcare plans.
-Discrepancy Management – Logs and resolves discrepancies related to insurance or healthcare services.
-Audit Logging – Maintains system activity logs for monitoring and compliance.
+## 📌 Features
+- Patient records management (Name, Age, Gender, Blood Type, Medical Conditions).  
+- Hospital admissions tracking (Doctor, Hospital, Room number, Billing).  
+- Insurance & Plan details with premium calculations.  
+- Enrollment system to link members with healthcare plans.  
+- Discrepancy tracking for claim resolution.  
 
-🗄️ Database Schema
+---
 
-The database contains the following main tables:
-members – Stores patient demographic details.
-health_data – Captures patient medical and hospital-related information.
-plans – Contains insurance plan details.
-enrollments – Connects members to their respective insurance plans.
-discrepancies – Records issues and resolutions in healthcare services.
-audit_log – Tracks user actions for accountability.
+## 🛠️ Database Schema
+The database contains the following tables:  
 
-🎯 Use Cases
+- **Members** – Patient details (name, gender, DOB, registration date).  
+- **Plans** – Insurance plans with coverage type & premium.  
+- **Enrollments** – Enrollment records linking members to plans.  
+- **Discrepancies** – Issues raised & resolutions.  
+- **Audit Log** – Tracks changes/actions for security.  
 
-Healthcare providers can manage patient admissions and billing.
-Insurance companies can handle plan enrollments and claims.
-Administrators can monitor discrepancies and maintain audit trails.
-Data analysts can use this system for healthcare analytics and reporting.
+![Database ERD](Screenshot%202025-08-21%20130257.png)  
 
-🛠️ Tools & Technologies
+---
 
-Database: PostgreSQL 17
-Interface: pgAdmin 4
-Schema Design: ERD with relational integrity
+## 📊 Sample SQL Queries
+Here are a few example queries (more in `Healthcare_enrolment.sql`):  
 
-Interface: pgAdmin 4
+```sql
+-- Q1: Find the total number of members
+SELECT COUNT(*) AS total_members FROM Members;
 
-Schema Design: ERD with relational integrity
+-- Q2: Get all active enrollments with plan details
+SELECT m.first_name, m.last_name, p.plan_name, e.status
+FROM Enrollments e
+JOIN Members m ON e.member_id = m.member_id
+JOIN Plans p ON e.plan_id = p.plan_id
+WHERE e.status = 'Enrolled';
