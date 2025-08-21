@@ -1,6 +1,7 @@
-# 🏥 Health Care Database  
+# Health_care_database  
 
-PostgreSQL Healthcare DB for managing patients, doctors, insurance & enrollments. Showcases SQL queries, design & data management skills.
+PostgreSQL project to manage patients, doctors, insurance & enrollments.  
+Showcases SQL queries, database design & data management skills.  
 
 ## 📌 Features
 - Patient records management (Name, Age, Gender, Blood Type, Medical Conditions).  
